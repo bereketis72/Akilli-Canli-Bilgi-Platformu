@@ -1,0 +1,10 @@
+wikipedia-api
+fastapi
+uvicorn
+sumy
+nltk
+pandas
+pyodbc
+deep-translator
+requests
+

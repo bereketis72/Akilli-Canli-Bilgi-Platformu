@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgi Platformu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .kimlik-kart {
+            background: linear-gradient(145deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .kimlik-header {
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            padding: 25px;
+            text-align: center;
+        }
+
+        .kimlik-header h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .bilimsel-ad {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        .kimlik-body {
+            padding: 20px;
+        }
+
+        .kimlik-satir {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .kimlik-satir:last-child {
+            border-bottom: none;
+        }
+
+        .kimlik-label {
+            color: #888;
+        }
+
+        .kimlik-value {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .kimlik-footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .ilginc-label {
+            color: #00d2ff;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .ilginc-bilgi p {
+            color: #ccc;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .kimlik-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .ozet-bolumu {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ozet-label {
+            color: #00d2ff;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .ozet-metin {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .resim-bolumu {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .resim-label {
+            color: #00d2ff;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .resim-galeri {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .resim-galeri img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .resim-galeri img:hover {
+            transform: scale(1.05);
+            border-color: #00d2ff;
+            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .resim-yok {
+            color: #888;
+            text-align: center;
+            padding: 20px;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #00d2ff;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid #3a7bd5;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        #searchInput::placeholder {
+            color: #888;
+        }
+
+        #searchBtn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #searchBtn:hover {
+            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .upload-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .upload-label {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500);
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .upload-label:hover {
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            display: none;
+        }
+
+        .result-card.show {
+            display: block;
+        }
+
+        .result-source {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(0, 210, 255, 0.2);
+            display: inline-block;
+        }
+
+        .result-link {
+            color: #3a7bd5;
+        }
+
+        #loading,
+        #error {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+
+        #loading.show,
+        #error.show {
+            display: block;
+        }
+
+        #error {
+            color: #ff6b6b;
+        }
+
+        /* Recommendation Section */
+        .recommendations-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .rec-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .rec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .rec-card h4 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .score-badge {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bilgi Platformu</h1>
+        <p class="subtitle">Hayvanlar ve bitkiler hakkında yapay zeka destekli bilgi</p>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Bir canlı adı yazın (örn: Aslan)">
+            <button id="searchBtn">Ara</button>
+        </div>
+
+
+
+        <div id="loading">Aranıyor...</div>
+        <div id="error"></div>
+
+        <div class="result-card" id="resultCard">
+            <div class="kimlik-kart">
+                <div class="kimlik-header">
+                    <h2 id="resultTitle">Aslan</h2>
+                    <span class="bilimsel-ad" id="bilimselAd">Panthera leo</span>
+                </div>
+
+                <div class="kimlik-body">
+                    <div class="kimlik-satir">
+                        <span class="kimlik-label">Familya</span>
+                        <span class="kimlik-value" id="familya">-</span>
+                    </div>
+                    <div class="kimlik-satir">
+                        <span class="kimlik-label">Habitat</span>
+                        <span class="kimlik-value" id="habitat">-</span>
+                    </div>
+                    <div class="kimlik-satir">
+                        <span class="kimlik-label">Beslenme</span>
+                        <span class="kimlik-value" id="beslenme">-</span>
+                    </div>
+                    <div class="kimlik-satir">
+                        <span class="kimlik-label">Tehdit Durumu</span>
+                        <span class="kimlik-value" id="tehdit">-</span>
+                    </div>
+                </div>
+
+                <div class="ozet-bolumu">
+                    <span class="ozet-label">Genel Özet</span>
+                    <p class="ozet-metin" id="resultSummary">-</p>
+                </div>
+
+                <div class="kimlik-footer">
+                    <div class="ilginc-bilgi">
+                        <span class="ilginc-label">Bunu Biliyor muydun?</span>
+                        <p id="ilgincBilgi">-</p>
+                    </div>
+                </div>
+
+                <div class="recommendations-section" id="recommendationsSection" style="display:none;">
+                    <h3 style="color: #00d2ff; margin-bottom: 15px;">Bunları da araştırmak ister misiniz?</h3>
+                    <div class="recommendations-grid" id="recommendationsGrid"></div>
+                </div>
+
+                <div class="kimlik-actions">
+                    <span class="result-source" id="resultSource"></span>
+                    <a class="result-link" id="resultLink" href="#" target="_blank">Wikipedia</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+
+        // Metin ile arama
+        async function search() {
+            const konu = searchInput.value.trim();
+            if (!konu) return;
+
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('error').classList.remove('show');
+            document.getElementById('resultCard').classList.remove('show');
+
+            try {
+                const araRes = await fetch(`/ara?konu=${encodeURIComponent(konu)}`);
+                const araData = await araRes.json();
+
+                const kimlikRes = await fetch(`/kimlik/${encodeURIComponent(konu)}`);
+                const kimlikData = await kimlikRes.json();
+
+                if (araData.hata) {
+                    document.getElementById('error').textContent = araData.hata;
+                    document.getElementById('error').classList.add('show');
+                } else {
+                    document.getElementById('resultTitle').textContent = kimlikData.baslik;
+                    document.getElementById('bilimselAd').textContent = kimlikData.bilimsel_adi || '';
+                    document.getElementById('familya').textContent = kimlikData.familya;
+                    document.getElementById('habitat').textContent = kimlikData.habitat;
+                    document.getElementById('beslenme').textContent = kimlikData.beslenme;
+                    document.getElementById('tehdit').textContent = kimlikData.tehdit_durumu;
+                    document.getElementById('ilgincBilgi').textContent = kimlikData.ilginc_bilgi;
+                    document.getElementById('resultSummary').textContent = araData.ozet;
+                    document.getElementById('resultSource').textContent =
+                        araData.kaynak === 'veritabanı' ? 'Veritabanından' : 'Wikipedia';
+                    document.getElementById('resultLink').href = araData.url;
+
+                    document.getElementById('resultCard').classList.add('show');
+
+                    // Benzerlikleri yükle
+                    loadRecommendations(araData.baslik || konu);
+                }
+            } catch (err) {
+                document.getElementById('error').textContent = 'Hata: ' + err.message;
+                document.getElementById('error').classList.add('show');
+            }
+            document.getElementById('loading').classList.remove('show');
+        }
+
+        // Benzerlikleri yükle
+        async function loadRecommendations(canliAdi) {
+            try {
+                // Her aramada farklı canlılar için random parametre ekle
+                const timestamp = Date.now();
+                const res = await fetch(`/oneriler/${encodeURIComponent(canliAdi)}?limit=4&_t=${timestamp}`);
+                const data = await res.json();
+
+                const section = document.getElementById('recommendationsSection');
+                const grid = document.getElementById('recommendationsGrid');
+
+                if (data.oneriler && data.oneriler.length > 0) {
+                    section.style.display = 'block';
+                    grid.innerHTML = '';
+
+                    data.oneriler.forEach(rec => {
+                        const card = document.createElement('div');
+                        card.className = 'rec-card';
+                        card.onclick = () => {
+                            searchInput.value = rec.baslik;
+                            search();
+                        };
+
+                        card.innerHTML = `
+                            <h4>${rec.baslik}</h4>
+                            <span class="score-badge">${rec.kategori}</span>
+                        `;
+
+                        grid.appendChild(card);
+                    });
+                } else {
+                    section.style.display = 'none';
+                }
+            } catch (err) {
+                console.error('Öneri hatası:', err);
+            }
+        }
+
+        searchBtn.addEventListener('click', search);
+        searchInput.addEventListener('keypress', e => { if (e.key === 'Enter') search(); });
+
+
+    </script>
+</body>
+
+</html>
