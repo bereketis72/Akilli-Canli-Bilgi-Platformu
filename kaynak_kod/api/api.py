@@ -110,6 +110,8 @@ def canli_ara(konu: str = Query(...)):
     if len(ozet) < 200:
         ozet = veri['giris_ozeti']
 
+        
+
     canli_kaydet({
         'baslik': veri['baslik'],
         'giris_ozeti': veri['giris_ozeti'],
@@ -142,4 +144,4 @@ if __name__ == "__main__":
     import webbrowser
     import uvicorn
     webbrowser.open("http://127.0.0.1:8001")
-    uvicorn.run(app, host="127.0.0.1", port=8001, log_level="error")
+    uvicorn.run(app, host="127.0.0.1", port=8001, log_level="error") 
