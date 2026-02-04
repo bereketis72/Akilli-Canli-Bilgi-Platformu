@@ -9,18 +9,18 @@
 ## Ekran Görüntüleri
 
 ### Ana Sayfa
-<img width="144" height="144" alt="Ekran görüntüsü 2026-02-04 100003" src="https://github.com/user-attachments/assets/6d66589b-7e98-4643-ab10-709c18342b2b" />
+<img width="300" height="300" alt="Ekran görüntüsü 2026-02-04 100003" src="https://github.com/user-attachments/assets/6d66589b-7e98-4643-ab10-709c18342b2b" />
 
 ### Dijital Kimlik Kartı
-<img width="144" height="144" alt="Ekran görüntüsü 2026-02-04 100020" src="https://github.com/user-attachments/assets/24990197-4155-48cf-a4b2-382c532af671" />
+<img width="300" height="300" alt="Ekran görüntüsü 2026-02-04 100020" src="https://github.com/user-attachments/assets/24990197-4155-48cf-a4b2-382c532af671" />
 
 
 ### Detaylı Bilgi Görünümü
-<img width="144" height="144" alt="genel ozet" src="https://github.com/user-attachments/assets/9f44d9d2-b50e-4435-9690-ae0974bdad5d" />
+<img width="300" height="300" alt="genel ozet" src="https://github.com/user-attachments/assets/9f44d9d2-b50e-4435-9690-ae0974bdad5d" />
 
 
 ### Akıllı Öneri Sistemi
-<img width="144" height="144" alt="ingilizce versiyonu" src="https://github.com/user-attachments/assets/7ab3b3bb-8766-4746-bbeb-5985a3fd31d7" />
+<img width="300" height="300" alt="ingilizce versiyonu" src="https://github.com/user-attachments/assets/7ab3b3bb-8766-4746-bbeb-5985a3fd31d7" />
 
 ---
 
