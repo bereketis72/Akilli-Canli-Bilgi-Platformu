@@ -9,16 +9,18 @@
 ## Ekran Görüntüleri
 
 ### Ana Sayfa
-![Ana Sayfa](screenshots/anasayfa.png)
+<img width="1919" height="933" alt="Ekran görüntüsü 2026-02-04 100003" src="https://github.com/user-attachments/assets/6d66589b-7e98-4643-ab10-709c18342b2b" />
 
 ### Dijital Kimlik Kartı
-![Dijital Kimlik Kartı](screenshots/dijital_kimlik.png)
+<img width="847" height="905" alt="Ekran görüntüsü 2026-02-04 100020" src="https://github.com/user-attachments/assets/24990197-4155-48cf-a4b2-382c532af671" />
+
 
 ### Detaylı Bilgi Görünümü
-![Detaylı Görünüm](screenshots/detay_gorunum.png)
+<img width="764" height="880" alt="genel ozet" src="https://github.com/user-attachments/assets/9f44d9d2-b50e-4435-9690-ae0974bdad5d" />
+
 
 ### Akıllı Öneri Sistemi
-![Öneri Sistemi](screenshots/oneriler.png)
+<img width="1044" height="925" alt="ingilizce versiyonu" src="https://github.com/user-attachments/assets/7ab3b3bb-8766-4746-bbeb-5985a3fd31d7" />
 
 ---
 
