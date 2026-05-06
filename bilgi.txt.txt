@@ -1,0 +1,8 @@
+venv =>> yükleyeceğimiz verileri bilgisayarın genelinde etkilemez sadece ilgili olan  klasörü etkiler 
+
+
+.\venv\Scripts\activate
+
+uvicorn kaynak_kod.api.api:app --reload   api.py çalıştırır
+
+r"C:\Users\berek\Desktop\bilgi_platformu - Kopya\kaynak_kod\test_resim.jpg"

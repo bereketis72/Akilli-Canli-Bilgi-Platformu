@@ -1,9 +1,14 @@
 import pyodbc
+import os
+from dotenv import load_dotenv
 
-server = r"Bereket\SQLEXPRESS02"
-database = "bilgi_platform"
-username = "sa"
-password = "727272"
+# .env dosyasını yükle
+load_dotenv()
+
+server = os.getenv("DB_SERVER", r"Bereket\SQLEXPRESS02")
+database = os.getenv("DB_NAME", "bilgi_platform")
+username = os.getenv("DB_USERNAME", "sa")
+password = os.getenv("DB_PASSWORD", "727272")
 
 def kategori_belirle(baslik, metin):
     baslik_kucuk = baslik.lower().strip()
